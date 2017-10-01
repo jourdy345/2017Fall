@@ -97,7 +97,7 @@
 \normalfont \normalsize 
 \textsc{korea university, department of statistics} \\ [25pt] % Your university, school and/or department name(s)
 \horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
-\huge International Finance \\ % The assignment title
+\huge Simulated Annealing \\ % The assignment title
 \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
 }
 
@@ -108,24 +108,8 @@
 \begin{document}
 
 \maketitle
-\section{Interest Rate}
-\begin{equation}
-  \begin{split}
-    i_{t}^{\star} &= \bar{i} + \pi_{t-1}\alpha + g_{t-1}\beta\\
-    i_{t} &= \rho i_{t-1}+(1-\rho)i_{t}^{\star}+e_{t}
-  \end{split}
-\end{equation}
-where $i_{t}^{\star}$ is the optimal interest rate, $\pi_{t-1}$ is the inflation rate of the previous term, and $g_{t-1}$ is the growth rate of the previous term. If we assume normal distribution for the error term,
-\begin{equation}
-  i_{t}\,|\,\Theta, F_{t-1} \sim N\left(\rho i_{t-1}+(1-\rho)\bar{i}+(1-\rho)\pi_{t-1}\alpha + (1-\rho)g_{t-1}\beta,\sigma^{2}\right)
-\end{equation}
-where $\Theta = (\bar{i},\alpha,\beta,\sigma^{2},\rho)$. There are several theoretical constraints to this model.
-\begin{itemize}
-  \item The interest rate should rise if the inflation rate is too large; hence, $\alpha$ should be positive.
-  \item The interest rate should rise if the growth rate is too large (the economy is overheated); hence, $\beta$ should be positive as well.
-  \item $\rho$ should be $0<\rho<1$.
-\end{itemize}
-
+\section{Simulated Annealing}
+Simulated annealing is used to find the optimum probabilistically. If the objective function is of the form $\exp\left(-h(\mathbf{x})/T\right)$, then we set a sequence of temperatures $T_{1}>T_{2}>\cdots > T_{k}>\cdots$ such that $\lim_{k\to\infty}T_{k}=0$.
 
 \newpage
 \nocite{*}

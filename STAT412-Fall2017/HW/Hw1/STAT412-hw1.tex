@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+
+\newcommand{\comment}[1]{}
+\usepackage{amssymb}
+\usepackage{fullpage}
+
+\newcommand{\half}{\mbox{$\frac{1}{2}$}}
+
+
+%\input{paper.tex}
+\begin{document}
+\begin{center}
+{\large\bf STAT 412 Fall 2017 Assignment One}\\
+{\bf Due no later than 5:00 p.m. on Thursday, October 12th,
+
+at the beginning of the class.}
+\end{center}
+
+\begin{enumerate}
+
+\item Suppose that $k$ events $B_1,\ldots,B_k$ form a partition of the sample space $\Omega$. For $i=1,\ldots,k$, let $P(B_i)$ denote the prior probability of $B_i$. Also, for each event $A$ such that $P(A)>0$, let $P(B_i |A)$ denote the posterior probability of $B_i$ given that the event $A$ has occurred. Prove that if $P(B_1|A) < P(B_1)$, then $P(B_i|A) > P(B_i)$ for at least one value of $i$ ($i=2,\ldots,k)$.
+
+\item Suppose that a box contains five coins, and that for each coin there is a different probability that a head will be obtained when the coin is tossed. Let $p_i$ denote the probability of a head when the $i$th coin is tossed ($i=1,\ldots,5)$, and suppose that $p_1=0,p_2=1/4,p_3=1/2,p_4=3/4$, and $p_5=1$.
+
+\begin{enumerate}
+\item Suppose that one coin is selected at random from the box and when it is tossed once, a head is obtained. What is the posterior probability that the $i$th coin was selected $(i=1,\ldots,5)$?
+\item If the same coin were tossed again, what would be the probability of obtaining another head?
+\item If a tail had been obtained on the first toss of the selected coin and the same coin were tossed again,
+what would be the probability of obtaining a head on the second toss?
+\end{enumerate}
+
+
+\item  The \textit{skewness} of a random variable $X$ can be defined as  
+     $\gamma_1 = \mu_3/(\mu_2)^{\frac{3}{2}}$ where
+\[               \mu_n  =  {\rm E} (X  -  {\rm E} (X))^n \]
+    
+     Find the skewness of a random variable $X$ with a binomial
+     distribution $B(n, \pi)$ of index $n$ and parameter $\pi$.
+     
+
+\item Define
+\[ I=\int_{0}^{\infty}\exp(-\half z^2)\,dz \]
+     and show 
+		that 
+\[ I=\int_{0}^{\infty}\exp(-\half(xy)^2)\,y\,dx
+    =\int_{0}^{\infty}\exp(-\half(zx)^2)\,z\,dx. \]
+     Deduce that
+\[ I^2=\int_{0}^{\infty}\int_{0}^{\infty}
+        \exp\{-\half(x^2+1)z^2\}\,z\,dz\,dx.             \]
+   and % By substituting $(1+x^2)z^2=2t$ so that $z\,dz=dt/(1+x^2)$ 
+	show that $I=\sqrt{\pi/2}$.
+	%so that the density of the standard normal 
+   %  distribution as defined in Section 1.3 does integrate to unity 
+   %  and so is indeed a density.  
+	(This method is due to Laplace, 1812, 
+     Section 24.)
+
+
+\item Let $X_1$, $X_2$ be two independent random variables each with p.d.f. $f_1(x)=e^{-x}$ for $x>0$ and $f_1(x)=0$ for $x \leq 0$. Let $Z = X_1 -X_2$ and $W=X_1/X_2$.
+\begin{enumerate}
+\item Prove that the conditional p.d.f of $X_1$ given $Z=0$ is
+\[
+ g_1(x_1 |0) = \left\{
+ \begin{array}{ll}
+ 2 e^{-2x_1} & \mbox{$x_1 > 0$}, \\
+ 0 & \mbox{otherwise}.
+ \end{array}
+ \right.
+\]
+\item Prove that the conditional p.d.f. of $X_1$ given $W=1$ is
+\[
+ h_1 (x_1 | 1) = \left\{
+ \begin{array}{ll}
+ 4 x_1 e^{-2x_1} & \mbox{$x_1 > 0$}, \\
+ 0 & \mbox{otherwise}.
+ \end{array}
+ \right.
+\]
+\end{enumerate}
+Notice that $\{Z=0\} = \{W=1\}$, but the conditional distribution of $X_1$ given $Z=0$ is not the same as the conditional distribution of given $W=1$. This discrepancy is known as the {\em Borel paradox} : The conditional p.d.f.'s are not like conditioning on events of probability 0. We can see that ``$Z$ is very close to 0" is not the same as ``$W$ is very close to 1".
+
+
+\item 
+ Suppose that the random variable $K$ has a logarithmic series
+distribution with parameter $\theta$ (where $0<\theta<1$), so that
+\[ P(K=k) = \frac{\alpha\theta^k}{k}\qquad(k=1,2,\dots) \]
+where $\alpha=-[\log(1-\theta)]^{-1}$. %and thus the probabilities are the
+%terms in the series expansion of $-\alpha\log(1-\theta)$.  
+Find the mean and variance of $K$.
+
+\item  A random variable $X$ is sub-Gaussian if there is some $c>0$ such that
+\[
+{\rm E}\left( e^{tX} \right) \leq e^{c^2 t^2/2}
+\]
+for all $t$. 
+\begin{enumerate}
+\item Suppose that $X$ is sub-Gaussian. Show that ${\rm E}(X)=0$ and ${\rm Var}(X) \leq c^2$.
+\item Let $X \sim {\rm Unif}(0,1)$. Show that $X-1/2$ is sub-Gaussian and check if (a) holds under $X-1/2$. 
+\end{enumerate}
+
+
+\item Let $X$ denote a random variable with a standard Laplace distribution with p.d.f
+\[
+ f(x) = \frac{1}{2} \exp\{-|x|\},~-\infty < x < \infty.
+\]
+Find the first, second and the third cumulants, i.e. $\kappa_1$, $\kappa_2$ and $\kappa_3$.
+
+\end{enumerate}
+
+\end{document}

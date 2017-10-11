@@ -1,0 +1,336 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+\usepackage{kotex}
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+%\usepackage{subcaption}
+\usepackage{amsmath,amsfonts,amsthm,amssymb} % Math packages
+\usepackage{centernot}
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage{newtxtext}
+% \usepackage[lite,nofontinfo,zswash,straightbraces]{mtpro2}
+\usepackage{bm}
+% \usepackage{times,mathptmx}
+\usepackage{tabto}
+\usepackage{titlesec}
+\usepackage[shortlabels]{enumitem}
+\usepackage{booktabs}
+\usepackage{subfig}
+\usepackage{cancel}
+
+\DeclareMathOperator*{\argmax}{\arg\!\max}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{proposition}{Proposition}
+
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+\newcommand\textline[4][t]{%
+  \par\smallskip\noindent\parbox[#1]{.333\textwidth}{\raggedright\texttt{+}#2}%
+  \parbox[#1]{.333\textwidth}{\centering#3}%
+  \parbox[#1]{.333\textwidth}{\raggedleft\texttt{#4}}\par\smallskip%
+}
+
+%--------------------------------------------------------------------------------
+%KNITR
+%---------------------------------------------------------------------------
+\usepackage[]{color}
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{0.96\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+%--------------------------------------------------------------------------------------------------
+
+%Roman Numeral
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Assignment \#3} % Assignment title
+\newcommand{\hmwkDueDate}{Wednesday,\ Oct\ 11,\ 2017} % Due date
+\newcommand{\hmwkClass}{STAT232} % Course/class
+\newcommand{\hmwkClassTime}{3:30pm} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Taeryon Choi} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{B. Park \& D. Lim} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+%title_page_1.tex와 연동
+%\title{
+%\vspace{2in}
+%\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+%\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+%\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+%\vspace{3in}
+%}
+
+%\author{\textbf{\hmwkAuthorName}}
+%\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+%\input{./title_page_1.tex}%TITLE PAGE
+%\maketitle
+\newpage
+
+\begin{minipage}{\columnwidth}
+\centering
+\textbf{{\LARGE Solutions for Assignment \#3 : Mathematical Statistics}}
+
+\vspace{15pt}
+{\Large Beomjo Park \& Daeyoung Lim}
+
+Dept. of Statistics, Korea University
+\end{minipage}
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+% To have just one problem per page, simply put a \clearpage after each problem
+\begin{homeworkProblem}
+
+Let $X_r$ have a $t$-distribution with $r(\geq 3)$ degrees of freedom : $X_r \sim t(r)$. Compute $E(X_r^2)$.\\
+
+\begin{problemAnswer} {
+Note that
+\[
+X_r \equiv \frac{Z}{\sqrt{W / r}}, \quad Z \sim \operatorname{N} (0,1) ~\indep~ W \sim \chi^2(r)
+\]
+Then,
+\begin{align*}
+  E(X_r^2) &= E\left( \frac{Z^2}{W / r} \right) = r \times E\left( Z^2 \right) E\left( \frac{1}{W} \right)    &\left( \because Z^2 ~ \indep ~ 1/W \right)\\
+       &= r \times  E\left( \frac{1}{W} \right) = \frac{r}{r-2} &\left( \because Z^2 \sim \chi^2 (1) \right)\\
+\end{align*}
+
+From the fact that
+\begin{align*}
+  E\left( \frac{1}{W} \right) &= \int_0^\infty \frac{1}{w} \frac{1}{2^{r/2} \Gamma(r/2)} w^{r/2 - 1} e^{- w/2} dw 
+    = \frac{1}{2 \cdot (r/2 - 1)} \underbrace{\int_0^\infty \frac{1}{2^{(r-2)/2} \Gamma((r-2)/2)} w^{(r-2)/2 - 1} e^{- w/2} dw}_{ = 1}\\
+    &= \frac{1}{r-2}
+\end{align*}
+}\end{problemAnswer}
+
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+% PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+Suppose that $W_1$ and $W_2$ are independent $\chi^2$ distributed random variables with $\nu_1$ and $\nu_2$ degrees of freedom, respectively. According to Definition 7.3,
+$$
+F = \frac{W_1 / \nu_1}{W_2 / \nu_2}
+$$
+has an $F$ distribution with $\nu_1$ and $\nu_2$ numerator and denominator degrees of freedom, respectively. Use the preceding structure of $F$, the independence of $W_1$ and $W_2$, and the result summarized in Exercise 7.30(b) to show
+
+(a) $E(F) = \nu_2 / (\nu_2 - 2)$, if $\nu_2 > 2$.\\
+
+\begin{problemAnswer}{
+
+}\end{problemAnswer}
+
+(b) $V(F) = [2\nu_2^2 (\nu_1 + \nu_2 - 2)] / [\nu_1 (\nu_2 - 2)^2 (\nu_2 - 4)]$, if $\nu_2 > 4$.\\
+
+\begin{problemAnswer}{
+
+}\end{problemAnswer}
+
+\end{homeworkProblem}
+
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+Suppose that $Z$ has a standard normal distribution, $Z \sim N(0,1)$, $Y$ has an exponential distribution with mean 2, $Y \sim {\rm Exp}(2)$, and that $Z$ and $Y$ are independent. Let $T=Z/\sqrt{Y/2}$. Find the p.d.f (probability density function) of $T$.\\
+
+\begin{problemAnswer} {
+
+}\end{problemAnswer}
+
+\end{homeworkProblem}
+
+
+%----------------------------------------------------------------------------------------
+% PROBLEM 4
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+Let $X_1,\ldots,X_n$ be a random sample from a $N(\mu_1,\sigma^2)$ and $Y_1,\ldots,Y_m$ 
+be a random sample from a $N(\mu_2,\sigma^2)$, independent with $X_1,\ldots,X_n$.
+
+(a) Define 
+\[
+ W=\frac{\sum_{i=1}^n (X_i - \overline{X}_n )^2}{\sum_{i=1}^m (Y_i - \overline{Y}_m )^2}
+\]
+Compute the expected value of $W$, ${\rm E}(W)$. \\
+
+\begin{problemAnswer} {
+
+}\end{problemAnswer}
+
+
+(b) Let $\displaystyle \overline{X}_{n-1} = \frac{1}{n-1} \sum_{i=1}^{n-1} X_i$, $\displaystyle \overline{Y}_{m} = \frac{1}{m} \sum_{i=1}^{m} Y_i$ and $\displaystyle T_m = \left[\frac{1}{n} \sum_{i=1}^m (Y_i - \overline{Y}_m )^2 \right]^{1/2}$. Determine the value of a constant $k$ such that the random variable $k(X_n-\overline{X}_{n-1} )/T_m$  will have a $t$ distribution with an appropriate degree of freedom.\\
+
+\begin{problemAnswer} {
+
+
+}\end{problemAnswer}
+
+\end{homeworkProblem}
+
+
+%----------------------------------------------------------------------------------------
+% PROBLEM 5
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+Let $X_1,\ldots,X_n$ be i.i.d. $N(\mu,\sigma^2)$ with $-\infty < \mu <\infty$ and $\sigma^2>0$ unknown. 
+Define $Y= \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X}_n )^2$. Compute the expected value of $Y^2$, ${\rm E}(Y^2)$. \\
+
+\begin{problemAnswer} {
+
+}\end{problemAnswer}
+
+\end{homeworkProblem}
+
+
+%------------------------------------
+%\bibliographystyle{apalike}
+%\bibliography{Hw1}
+\end{document}

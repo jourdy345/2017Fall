@@ -447,72 +447,72 @@ Find the moment-generating function of $Y$ and use it to find $E(Y)$.\\
 %----------------------------------------------------------------------------------------
 % PROBLEM 5
 %----------------------------------------------------------------------------------------
-\begin{homeworkProblem}
-Let $(Y_1, Y_2)$ denote the coordinates of a point chosen at random inside a unit circle whose center is at the origin. That is, $Y_1$ and $Y_2$ have a joint density function given by
-\begin{align*}
-  f(y_1, y_2) = \begin{cases}
-    \frac{1}{\pi}, & y_1^2 + y_2^2 \le 1,\\
-    0, & \text{elsewhere.}
-  \end{cases}
-\end{align*}
+% \begin{homeworkProblem}
+% Let $(Y_1, Y_2)$ denote the coordinates of a point chosen at random inside a unit circle whose center is at the origin. That is, $Y_1$ and $Y_2$ have a joint density function given by
+% \begin{align*}
+%   f(y_1, y_2) = \begin{cases}
+%     \frac{1}{\pi}, & y_1^2 + y_2^2 \le 1,\\
+%     0, & \text{elsewhere.}
+%   \end{cases}
+% \end{align*}
 
-Find $P(Y_1 \le Y_2)$.\\
+% Find $P(Y_1 \le Y_2)$.\\
 
-\begin{problemAnswer} {
-  The problem is equivalent to calculating $P(Y_{1}-Y_{2}\leq 0)$ and since the integration region is a circle on the $xy$-plane, it is more comfortable to use the polar coordinate. The region satisfying
-  \begin{equation}
-    y_{1}\leq y_{2} \quad \text{and}\quad y_{1}^{2}+y_{2}^{2}\leq 1
-  \end{equation}
-  is the circle below the line $y_{2}=y_{1}$. Thus,
-  \begin{equation}
-  \begin{split}
-    P(Y_{1}\leq Y_{2}) &= \int_{-3\pi/4}^{\pi/4}\int_{0}^{1}\dfrac{r}{\pi}\,\mathrm{d}r\,\mathrm{d}\theta\\
-    &= \int_{-3\pi/4}^{\pi/4}\dfrac{1}{2\pi}\,\mathrm{d}\theta\\
-    &= \dfrac{1}{2}
-  \end{split}
-  \end{equation}
-}\end{problemAnswer}
+% \begin{problemAnswer} {
+%   The problem is equivalent to calculating $P(Y_{1}-Y_{2}\leq 0)$ and since the integration region is a circle on the $xy$-plane, it is more comfortable to use the polar coordinate. The region satisfying
+%   \begin{equation}
+%     y_{1}\leq y_{2} \quad \text{and}\quad y_{1}^{2}+y_{2}^{2}\leq 1
+%   \end{equation}
+%   is the circle below the line $y_{2}=y_{1}$. Thus,
+%   \begin{equation}
+%   \begin{split}
+%     P(Y_{1}\leq Y_{2}) &= \int_{-3\pi/4}^{\pi/4}\int_{0}^{1}\dfrac{r}{\pi}\,\mathrm{d}r\,\mathrm{d}\theta\\
+%     &= \int_{-3\pi/4}^{\pi/4}\dfrac{1}{2\pi}\,\mathrm{d}\theta\\
+%     &= \dfrac{1}{2}
+%   \end{split}
+%   \end{equation}
+% }\end{problemAnswer}
 
-\end{homeworkProblem}
+% \end{homeworkProblem}
 
-%----------------------------------------------------------------------------------------
-% PROBLEM 6
-%----------------------------------------------------------------------------------------
+% %----------------------------------------------------------------------------------------
+% % PROBLEM 6
+% %----------------------------------------------------------------------------------------
 
-\begin{homeworkProblem}
-Let $(X,Y)$ have a uniform distribution over the unit square, i.e. the joint p.d.f. of $(X,Y)$ is given by
-\begin{align}
-	f(x,y) = \begin{cases}
-    1 & 0\le x\le 1,\ 0\le y\le 1\\
-    0, & \text{otherwise}
-  \end{cases}
-\end{align}
+% \begin{homeworkProblem}
+% Let $(X,Y)$ have a uniform distribution over the unit square, i.e. the joint p.d.f. of $(X,Y)$ is given by
+% \begin{align}
+% 	f(x,y) = \begin{cases}
+%     1 & 0\le x\le 1,\ 0\le y\le 1\\
+%     0, & \text{otherwise}
+%   \end{cases}
+% \end{align}
 
-Find the moment generating function $Z=-\log(X)-\log(Y)$.
+% Find the moment generating function $Z=-\log(X)-\log(Y)$.
 
-\begin{problemAnswer} {
-  Note that the given function is the joint PDF of two independent standard uniform random variables, that is, $X,Y \overset{\text{iid}}{\sim}\operatorname{Unif}(0,1)$. Thus, we can use the relations
-  \begin{itemize}
-    \item $-\log U \sim \operatorname{Exp}(1)$ where $U\sim \operatorname{Unif}(0,1)$.
-    \begin{proof}
-      Let $g(u) = -\log u$. Then, $g^{-1}(x) = e^{-x}$. By the variable transformation,
-      \begin{equation}
-        f_{X}(x) = f_{U}(g^{-1}(x))\left|\dfrac{d g^{-1}(x)}{dx}\right| = e^{-x}
-      \end{equation}
-      which is the density of the exponential distribution with mean $1$.
-    \end{proof}
-    \item If $E_{1},E_{2}\overset{\text{iid}}{\sim}\operatorname{Exp}(1)$, $E_{1}+E_{2}\sim \operatorname{Gamma}(2,1)$.
-  \end{itemize}
-  Thus, the MGF of $Z \sim \operatorname{Gamma}(2,1)$ becomes
-  \begin{equation}
-    \begin{split}
-      \operatorname{E}(e^{tZ}) &= \int_{0}^{\infty}ze^{(t-1)z}\,\mathrm{d}z\\
-      &= \dfrac{1}{(t-1)^{2}},\quad t<1
-    \end{split}
-  \end{equation}
-}\end{problemAnswer}
+% \begin{problemAnswer} {
+%   Note that the given function is the joint PDF of two independent standard uniform random variables, that is, $X,Y \overset{\text{iid}}{\sim}\operatorname{Unif}(0,1)$. Thus, we can use the relations
+%   \begin{itemize}
+%     \item $-\log U \sim \operatorname{Exp}(1)$ where $U\sim \operatorname{Unif}(0,1)$.
+%     \begin{proof}
+%       Let $g(u) = -\log u$. Then, $g^{-1}(x) = e^{-x}$. By the variable transformation,
+%       \begin{equation}
+%         f_{X}(x) = f_{U}(g^{-1}(x))\left|\dfrac{d g^{-1}(x)}{dx}\right| = e^{-x}
+%       \end{equation}
+%       which is the density of the exponential distribution with mean $1$.
+%     \end{proof}
+%     \item If $E_{1},E_{2}\overset{\text{iid}}{\sim}\operatorname{Exp}(1)$, $E_{1}+E_{2}\sim \operatorname{Gamma}(2,1)$.
+%   \end{itemize}
+%   Thus, the MGF of $Z \sim \operatorname{Gamma}(2,1)$ becomes
+%   \begin{equation}
+%     \begin{split}
+%       \operatorname{E}(e^{tZ}) &= \int_{0}^{\infty}ze^{(t-1)z}\,\mathrm{d}z\\
+%       &= \dfrac{1}{(t-1)^{2}},\quad t<1
+%     \end{split}
+%   \end{equation}
+% }\end{problemAnswer}
 
-\end{homeworkProblem}
+% \end{homeworkProblem}
 %------------------------------------
 %\bibliographystyle{apalike}
 %\bibliography{Hw1}
